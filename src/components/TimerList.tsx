@@ -4,7 +4,15 @@ import { useTimerStore } from '../store/useTimerStore';
 import { EmptyState } from './EmptyState';
 
 export const TimerList: React.FC = () => {
-  const { timers } = useTimerStore();
+  const { timers, updateAllRunningTimers } = useTimerStore();
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      updateAllRunningTimers();
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [updateAllRunningTimers]);
 
   return (
     <div className="space-y-4 min-h-[400px] mt-8">
