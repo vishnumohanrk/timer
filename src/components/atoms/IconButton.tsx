@@ -28,7 +28,7 @@ const iconButtonBaseClasses =
 
 const iconButtonVariantClasses = {
   primary: 'hover:bg-blue-50 text-blue-500',
-  secondary: 'text-gray-700 bg-gray-100 hover:bg-gray-200',
+  secondary: 'text-gray-700 hover:bg-gray-100',
   success: 'bg-green-100 text-green-600 hover:bg-green-200',
   danger: 'bg-red-100 text-red-600 hover:bg-red-200',
 } satisfies Record<IconButtonVariant, string>;
