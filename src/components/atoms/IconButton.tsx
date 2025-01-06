@@ -2,8 +2,7 @@ export type IconButtonVariant = 'primary' | 'secondary' | 'success' | 'danger';
 
 export type IconButtonSize = 'sm' | 'md';
 
-export interface IconButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface IconButtonProps extends React.ComponentProps<'button'> {
   size?: IconButtonSize;
   variant?: IconButtonVariant;
 }
