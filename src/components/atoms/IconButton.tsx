@@ -1,4 +1,9 @@
-export type IconButtonVariant = 'primary' | 'secondary' | 'success' | 'danger';
+export type IconButtonVariant =
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'danger'
+  | 'danger2';
 
 export type IconButtonSize = 'sm' | 'md';
 
@@ -27,10 +32,11 @@ const iconButtonBaseClasses =
   'rounded-full transition-colors disabled:cursor-not-allowed';
 
 const iconButtonVariantClasses = {
-  primary: 'hover:bg-blue-50 text-blue-500',
+  primary: 'text-blue-500 hover:bg-blue-50',
   secondary: 'text-gray-700 hover:bg-gray-100',
   success: 'bg-green-100 text-green-600 hover:bg-green-200',
-  danger: 'bg-red-100 text-red-600 hover:bg-red-200',
+  danger: 'text-red-500 hover:bg-red-50',
+  danger2: 'bg-red-100 text-red-600 hover:bg-red-200',
 } satisfies Record<IconButtonVariant, string>;
 
 const iconButtonSizeClasses = {
