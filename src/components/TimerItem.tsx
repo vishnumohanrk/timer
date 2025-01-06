@@ -14,7 +14,7 @@ interface TimerItemProps {
 }
 
 export const TimerItem: React.FC<TimerItemProps> = ({ timer }) => {
-  const { toggleTimer, deleteTimer, updateTimer, restartTimer } =
+  const { toggleTimer, deleteTimer, restartTimer, updateAllRunningTimers } =
     useTimerStore();
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const intervalRef = useRef<number | null>(null);
@@ -24,7 +24,7 @@ export const TimerItem: React.FC<TimerItemProps> = ({ timer }) => {
   useEffect(() => {
     if (timer.isRunning) {
       intervalRef.current = window.setInterval(() => {
-        updateTimer(timer.id);
+        updateAllRunningTimers();
 
         if (timer.remainingTime <= 1 && !hasEndedRef.current) {
           hasEndedRef.current = true;
@@ -49,7 +49,7 @@ export const TimerItem: React.FC<TimerItemProps> = ({ timer }) => {
     timer.remainingTime,
     timer.title,
     timerAudio,
-    updateTimer,
+    updateAllRunningTimers,
   ]);
 
   const handleRestart = () => {

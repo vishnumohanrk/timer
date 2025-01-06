@@ -67,6 +67,14 @@ const timerSlice = createSlice({
         timer.isRunning = false;
       }
     },
+    updateAllRunningTimers: (state) => {
+      state.timers.forEach((timer) => {
+        if (timer && timer.isRunning) {
+          timer.remainingTime -= 1;
+          timer.isRunning = timer.remainingTime > 0;
+        }
+      });
+    },
   },
 });
 
@@ -90,6 +98,7 @@ export const {
   updateTimer,
   restartTimer,
   editTimer,
+  updateAllRunningTimers,
 } = timerSlice.actions;
 
 export const useTimerStore = () => {
@@ -106,5 +115,6 @@ export const useTimerStore = () => {
     restartTimer: (id: string) => dispatch(restartTimer(id)),
     editTimer: (id: string, updates: Partial<Timer>) =>
       dispatch(editTimer({ id, updates })),
+    updateAllRunningTimers: () => dispatch(updateAllRunningTimers()),
   };
 };
