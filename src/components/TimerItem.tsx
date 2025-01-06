@@ -31,7 +31,6 @@ export const TimerItem: React.FC<TimerItemProps> = ({ timer }) => {
       !hasEndedRef.current
     ) {
       hasEndedRef.current = true;
-      timerAudio.stop();
 
       timerAudio.play().catch(console.error);
 
