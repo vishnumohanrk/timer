@@ -30,7 +30,7 @@ export const EditTimerModal: React.FC<EditTimerModalProps> = ({
           <Clock className="w-5 h-5 text-blue-600" />
           <ModalHeading>Edit Timer</ModalHeading>
         </div>
-        <IconButton onClick={onClose}>
+        <IconButton title="Close" onClick={onClose}>
           <X className="w-5 h-5" />
         </IconButton>
       </div>

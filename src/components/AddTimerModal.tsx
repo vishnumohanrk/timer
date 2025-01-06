@@ -28,7 +28,12 @@ export const AddTimerModal: React.FC<AddTimerModalProps> = ({
           <Clock className="w-5 h-5 text-blue-600" />
           <ModalHeading>Add New Timer</ModalHeading>
         </div>
-        <IconButton onClick={onClose} variant="secondary" size="sm">
+        <IconButton
+          title="Close"
+          onClick={onClose}
+          variant="secondary"
+          size="sm"
+        >
           <X className="w-5 h-5" />
         </IconButton>
       </div>
