@@ -8,6 +8,7 @@ import { EditTimerModal } from './EditTimerModal';
 import { TimerAudio } from '../utils/audio';
 import { TimerControls } from './TimerControls';
 import { TimerProgress } from './TimerProgress';
+import { IconButton } from './Atoms/IconButton';
 
 interface TimerItemProps {
   timer: Timer;
@@ -103,27 +104,22 @@ export const TimerItem: React.FC<TimerItemProps> = ({ timer }) => {
               <p className="text-gray-600 mt-1">{timer.description}</p>
             </div>
             <div className="flex gap-2">
-              <button
-                onClick={() => setIsEditModalOpen(true)}
-                className="p-2 rounded-full hover:bg-blue-50 text-blue-500 transition-colors"
+              <IconButton
                 title="Edit Timer"
+                onClick={() => setIsEditModalOpen(true)}
               >
                 <Pencil className="w-5 h-5" />
-              </button>
-              <button
-                onClick={handleRestart}
-                className="p-2 rounded-full hover:bg-blue-50 text-blue-500 transition-colors"
-                title="Restart Timer"
-              >
+              </IconButton>
+              <IconButton title="Restart Timer" onClick={handleRestart}>
                 <RotateCcw className="w-5 h-5" />
-              </button>
-              <button
-                onClick={handleDelete}
-                className="p-2 rounded-full hover:bg-red-50 text-red-500 transition-colors"
+              </IconButton>
+              <IconButton
+                variant="danger"
                 title="Delete Timer"
+                onClick={handleDelete}
               >
                 <Trash2 className="w-5 h-5" />
-              </button>
+              </IconButton>
             </div>
           </div>
           <div className="flex flex-col items-center mt-6">

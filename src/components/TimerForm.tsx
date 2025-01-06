@@ -74,6 +74,7 @@ export function TimerForm({
           value={title}
           id="timerTitle"
           maxLength={50}
+          placeholder="Enter timer title"
           data-invalid={isTitleFieldError}
           onChange={(e) => setTitle(e.target.value)}
           onBlur={() => setTouched({ ...touched, title: true })}
