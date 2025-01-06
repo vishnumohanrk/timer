@@ -66,10 +66,13 @@ export function TimerForm({
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <FormFieldContainer>
-        <FormFieldLabel required>Title</FormFieldLabel>
+        <FormFieldLabel htmlFor="timerTitle" required>
+          Title
+        </FormFieldLabel>
         <Input
           type="text"
           value={title}
+          id="timerTitle"
           maxLength={50}
           data-invalid={isTitleFieldError}
           onChange={(e) => setTitle(e.target.value)}
@@ -86,10 +89,11 @@ export function TimerForm({
       </FormFieldContainer>
 
       <FormFieldContainer>
-        <FormFieldLabel>Description</FormFieldLabel>
+        <FormFieldLabel htmlFor="timerDescription">Description</FormFieldLabel>
         <TextArea
           rows={3}
           value={description}
+          id="timerDescription"
           onChange={(e) => setDescription(e.target.value)}
           placeholder="Enter timer description (optional)"
         />
@@ -99,12 +103,15 @@ export function TimerForm({
         <FormFieldLabel required>Duration</FormFieldLabel>
         <div className="grid grid-cols-3 gap-4">
           <FormFieldContainer className="gap-1">
-            <FormFieldLabel variant="secondary">Hours</FormFieldLabel>
+            <FormFieldLabel htmlFor="timerHours" variant="secondary">
+              Hours
+            </FormFieldLabel>
             <Input
               min="0"
               max="23"
               value={hours}
               type="number"
+              id="timerHours"
               onBlur={() => setTouched({ ...touched, hours: true })}
               onChange={(e) =>
                 setHours(Math.min(23, parseInt(e.target.value) || 0))
@@ -112,12 +119,15 @@ export function TimerForm({
             />
           </FormFieldContainer>
           <FormFieldContainer className="gap-1">
-            <FormFieldLabel variant="secondary">Minutes</FormFieldLabel>
+            <FormFieldLabel htmlFor="timerMinutes" variant="secondary">
+              Minutes
+            </FormFieldLabel>
             <Input
               min="0"
               max="59"
               type="number"
               value={minutes}
+              id="timerMinutes"
               onBlur={() => setTouched({ ...touched, minutes: true })}
               onChange={(e) =>
                 setMinutes(Math.min(59, parseInt(e.target.value) || 0))
@@ -125,12 +135,15 @@ export function TimerForm({
             />
           </FormFieldContainer>
           <FormFieldContainer className="gap-1">
-            <FormFieldLabel variant="secondary">Seconds</FormFieldLabel>
+            <FormFieldLabel htmlFor="timerSeconds" variant="secondary">
+              Seconds
+            </FormFieldLabel>
             <Input
               min="0"
               max="59"
               type="number"
               value={seconds}
+              id="timerSeconds"
               onBlur={() => setTouched({ ...touched, seconds: true })}
               onChange={(e) =>
                 setSeconds(Math.min(59, parseInt(e.target.value) || 0))
